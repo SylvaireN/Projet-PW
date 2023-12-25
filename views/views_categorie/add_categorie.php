@@ -15,7 +15,7 @@
         <a href="index.php?page=listCategorie">Retour à la liste des categorie</a>
         <div class="mb-3">
             <form action="index.php?page=addCat&action=addCategorie" method="post">
-                <label for="nom" class="form-label">Nom du categorie :</label>
+                <label for="nomCat" class="form-label">Nom du categorie :</label>
                 <input type="text" id="nomCat" name="nomCat" class="form-control" required><br>
 
                 <label for="prenom" class="form-label">Code Raccourcie :</label>

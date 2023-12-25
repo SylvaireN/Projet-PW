@@ -58,6 +58,29 @@ class CategorieDAO {
         }
     }
 
+     // MÃ©thode pour mettre Ã  jour un contact
+     public function update(CategorieModel $categorie) {
+        try {
+            $stmt = $this->connexion->pdo->prepare("UPDATE categorie SET nomcat = ?, code = ? WHERE id = ?");
+            $stmt->execute([$categorie->getNom(), $categorie->getCode(), $categorie->getId()]);
+            return true;
+        } catch (PDOException $e) {
+            // GÃ©rer les erreurs de mise Ã  jour ici
+            return false;
+        }
+    }
+
+    // MÃ©thode pour supprimer un contact par son ID
+    public function deleteById($id) {
+        try {
+            $stmt = $this->connexion->pdo->prepare("DELETE FROM categorie WHERE id = ?");
+            $stmt->execute([$id]);
+            return true;
+        } catch (PDOException $e) {
+            // GÃ©rer les erreurs de suppression ici
+            return false;
+        }
+    }
     
 
 }

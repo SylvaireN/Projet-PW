@@ -28,8 +28,8 @@
                             <td><?php echo $cat->getCode(); ?></td>
                             <td>
                                 <a href="index.php?page=viewCat&action=viewCategorie&id=<?php echo $cat->getId(); ?>">Voir</a>
-                                <a href="index.php?page=edit&action=editContact&id=<?php echo $cat->getId(); ?>">Modifier</a>
-                                <a href="index.php?page=delete&action=deleteContact&id=<?php echo $cat->getId(); ?>">Supprimer</a>
+                                <a href="index.php?page=editCat&action=editCategorie&id=<?php echo $cat->getId(); ?>">Modifier</a>
+                                <a href="index.php?page=deleteCat&action=deleteCategorie&id=<?php echo $cat->getId(); ?>">Supprimer</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
