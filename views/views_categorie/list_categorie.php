@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1><center>Liste des Catégories</center></h1><br/>
-        <a href="index.php?page=addCategorie">Ajouter une catégorie</a>
+        <a href="index.php?page=addCat">Ajouter une catégorie</a>
 
         <?php if (count($categorie) > 0): ?>
             <table class="table table-striped">
@@ -27,7 +27,7 @@
                             <td><?php echo $cat->getNom(); ?></td>
                             <td><?php echo $cat->getCode(); ?></td>
                             <td>
-                                <a href="index.php?page=view&action=viewCategorie&id=<?php echo $cat->getId(); ?>">Voir</a>
+                                <a href="index.php?page=viewCat&action=viewCategorie&id=<?php echo $cat->getId(); ?>">Voir</a>
                                 <a href="index.php?page=edit&action=editContact&id=<?php echo $cat->getId(); ?>">Modifier</a>
                                 <a href="index.php?page=delete&action=deleteContact&id=<?php echo $cat->getId(); ?>">Supprimer</a>
                             </td>

@@ -1,5 +1,5 @@
 <?php
-class ViewContactController {
+class ViewCategorieController {
     private $categorieDAO;
 
     public function __construct(CategorieDAO $categorieDAO) {

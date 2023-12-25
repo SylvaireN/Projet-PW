@@ -36,8 +36,8 @@ $action = 'index'; // Page par d�faut
 // D�finir les contr�leurs disponibles
 $controllers = [
 'home' => 'HomeController',
-'addCategorie' => 'AddCategorieController',
-'view' => 'ViewContactController',
+'addCat' => 'AddCategorieController',
+'viewCat' => 'ViewCategorieController',
 'listCategorie' => 'ListCategorieController',
 'listLicencie' => 'ListLicencieController',
 'listContact' => 'ListContactController',

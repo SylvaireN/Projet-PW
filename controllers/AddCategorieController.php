@@ -26,11 +26,11 @@ class AddCategorieController {
             // Appeler la méthode du modèle (ContactDAO) pour ajouter le contact
             if ($this->categorieDAO->create($nouveauCategorie)) {
                 // Rediriger vers la page d'accueil après l'ajout
-                header('Location:index.php');
+                header('Location:index.php?page=listCategorie');
                 exit();
             } else {
                 // Gérer les erreurs d'ajout de contact
-                echo "Erreur lors de l'ajout du contact.";
+                echo "Erreur lors de l'ajout du catégorie.";
             }
         }
 
