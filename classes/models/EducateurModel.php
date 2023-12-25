@@ -10,13 +10,23 @@ class EducateurModel extends LicencieModel
 
     private $licence_id;
 
-    public function __construct($id, $nomCat, $codeRaccourci, $numeroLicence, $nom, $prenom, $contact, $email, $motDePasse, $role, $licence_id)
+    public function __construct($id, $email, $motDePasse, $role, $licence_id)
     {
-        parent::__construct($id, $nomCat, $codeRaccourci, $numeroLicence, $nom, $prenom, $contact);
+        $this->id = $id;
         $this->email = $email;
         $this->motDePasse = $motDePasse;
         $this->role = $role;
         $this->licence_id = $licence_id;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     public function getEmail()

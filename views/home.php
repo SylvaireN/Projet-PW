@@ -21,11 +21,14 @@
                 <a class="nav-link" href="index.php?page=listLicencie">Listes des Licenciés</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="index.php?page=listContact">Listes des Contacts</a>
+                <a class="nav-link" href="index.php?page=listEducateur">Listes des Educateurs</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                <a class="nav-link" href="index.php?page=listContact">Listes des Contacts</a>
             </li>
+            <!--<li class="nav-item">
+                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>-->
         </ul>
 
         

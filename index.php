@@ -6,10 +6,12 @@ require_once("classes/models/Connexion.php");
 require_once("classes/models/CategorieModel.php");
 require_once("classes/models/LicencieModel.php");
 require_once("classes/models/ContactModel.php");
+require_once("classes/models/EducateurModel.php");
 require_once("classes/dao/LicencieDAO.php");
 require_once("classes/dao/CategorieDAO.php");
 require_once("classes/dao/ContactDAO.php");
-
+require_once("classes/dao/EducateurDAO.php");
+$educateurDAO=new EducateurDAO(new Connexion());
 $contactDAO=new ContactDAO(new Connexion());
 $licencieDAO=new LicencieDAO(new Connexion());
 $categorieDAO=new CategorieDAO(new Connexion());
@@ -39,6 +41,7 @@ $controllers = [
 'listCategorie' => 'ListCategorieController',
 'listLicencie' => 'ListLicencieController',
 'listContact' => 'ListContactController',
+'listEducateur' => 'ListEducateurController',
 //'delete' => 'DeleteContactController',
 //'edit' => 'EditContactController'
 ];
@@ -50,7 +53,7 @@ require_once('controllers/' . $controllerName . '.php');
 echo "Vous appelez ce controller : ".$controllerName;
 // Instancier le contr�leur
 
-$controller = new $controllerName($categorieDAO,$licencieDAO,$contactDAO);
+$controller = new $controllerName($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO);
 
 
 // Ex�cuter la m�thode par d�faut du contr�leur (par exemple, index() ou home())
