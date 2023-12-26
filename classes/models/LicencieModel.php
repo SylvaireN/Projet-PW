@@ -2,6 +2,7 @@
 
 class LicencieModel 
 {
+    private $id;
     private $numeroLicence;
     private $nom;
     private $prenom;
@@ -11,11 +12,22 @@ class LicencieModel
     public function __construct($id, $numeroLicence, $nom, $prenom, $contact, $idCat)
     {
         //parent::__construct($id, $nomCat, $codeRaccourci);
+        $this->id = $id;
         $this->numeroLicence = $numeroLicence;
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->contact = $contact;
         $this->idCat = $idCat;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     public function getNumeroLicence()

@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1><center>Liste des Licenciés</center></h1><br/>
-        <a href="index.php?page=">Ajouter un Licencié</a>
+        <a href="index.php?page=addLicence">Ajouter un Licencié</a>
 
         <?php if (count($licencie) > 0): ?>
             <table class="table table-striped">
@@ -20,6 +20,7 @@
                         <th>Nom</th>
                         <th>Prénom</th>
                         <th>Contact</th>
+                        <th>Catégorie</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -30,6 +31,16 @@
                             <td><?php echo $licence->getNom(); ?></td>
                             <td><?php echo $licence->getPrenom(); ?></td>
                             <td><?php echo $licence->getContact(); ?></td>
+                            <td><?php
+                                foreach ($categorie as $cat):
+                                    if($cat->getId() == $licence->getIdCat()):
+                                        echo $cat->getNom(); 
+                                    
+                                        
+                                        ?>
+                                    <?php endif; ?>
+                               <?php endforeach; ?>
+                             </td>
                             <td>
                                 <a href="index.php?page=view&action=viewCategorie&id=<?php echo $licence->getId(); ?>">Voir</a>
                                 <a href="index.php?page=edit&action=editContact&id=<?php echo $licence->getId(); ?>">Modifier</a>

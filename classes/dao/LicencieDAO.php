@@ -46,6 +46,17 @@ class LicencieDAO {
         }
     }
 
+    // MÃ©thode pour insÃ©rer un nouveau licencié dans la base de donnÃ©es
+    public function create(LicencieModel $licencie) {
+        try {
+            $stmt = $this->connexion->pdo->prepare("INSERT INTO licencie (numero, nom, prenom, contact, idCat) VALUES (?, ?, ?, ?, ?)");
+            $stmt->execute([$licencie->getNumeroLicence(), $licencie->getNom(), $licencie->getPrenom(), $licencie->getContact(), $licencie->getIdCat()]);
+            return true;
+        } catch (PDOException $e) {
+            // GÃ©rer les erreurs d'insertion ici
+            return false;
+        }
+    }
    
 
     
