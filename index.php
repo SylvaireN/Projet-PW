@@ -42,6 +42,7 @@ $controllers = [
 'deleteCat' => 'DeleteCategorieController',
 'listCategorie' => 'ListCategorieController',
 'addLicence' => 'AddLicencieController',
+'editLicence' => 'EditLicencieController',
 'viewLicence' => 'ViewLicencieController',
 'listLicencie' => 'ListLicencieController',
 'listContact' => 'ListContactController',

@@ -87,7 +87,7 @@
                              </td>
                             <td>
                                 <a href="index.php?page=viewLicence&action=viewLicencie&id=<?php echo $licence->getId(); ?>">Voir</a>
-                                <a href="index.php?page=edit&action=editContact&id=<?php echo $licence->getId(); ?>">Modifier</a>
+                                <a href="index.php?page=editLicence&action=editLicencie&id=<?php echo $licence->getId(); ?>">Modifier</a>
                                 <a href="index.php?page=delete&action=deleteContact&id=<?php echo $licence->getId(); ?>">Supprimer</a>
                             </td>
                         </tr>

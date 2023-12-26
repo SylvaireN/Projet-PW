@@ -57,6 +57,22 @@ class LicencieDAO {
             return false;
         }
     }
+
+     // MÃ©thode pour mettre Ã  jour un licencie
+     public function update(LicencieModel $licencie) {
+        
+        try {
+            
+            $stmt = $this->connexion->pdo->prepare("UPDATE licencie SET numero = ?, nom = ?, prenom = ?, contact_id = ?, idCat = ? WHERE id = ?");
+            $stmt->execute([$licencie->getNumeroLicence(), $licencie->getNom(), $licencie->getPrenom(), $licencie->getContactId(), $licencie->getIdCat(), $licencie->getId()]);
+            return true;
+        } catch (PDOException $e) {
+            
+            
+            // GÃ©rer les erreurs de mise Ã  jour ici
+            return false;
+        }
+    }
    
 
     

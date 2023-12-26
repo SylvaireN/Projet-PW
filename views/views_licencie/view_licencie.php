@@ -16,7 +16,38 @@
             <p><strong>Numéro de Licence :</strong> <?php echo $licencie->getNumeroLicence(); ?></p>
             <p><strong>Nom :</strong> <?php echo $licencie->getNom(); ?></p>
             <p><strong>Prénom :</strong> <?php echo $licencie->getPrenom(); ?></p>
-            <p><strong>Contact :</strong> <?php echo $licencie->getContact(); ?></p>
+            <p><strong>Contact :</strong>
+            
+                <?php
+                    foreach ($contact as $ct):
+                        if($ct->getId() == $licencie->getContactId()):
+                            echo $ct->getNom(); ?>&nbsp;&nbsp;
+                            <?php echo $ct->getPrenom();
+                        
+                            
+                            ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+        
+             </p>
+             <p><strong>Email :</strong> 
+                <?php
+                    foreach ($contact as $ct):
+                        if($ct->getId() == $licencie->getContactId()):
+                            echo $ct->getEmail();
+                            ?>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </p>
+             <p><strong>Téléphone :</strong> 
+            <?php
+                foreach ($contact as $ct):
+                    if($ct->getId() == $licencie->getContactId()):
+                        echo $ct->getTelephone();
+                        ?>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </p>
             <p><strong>Catégorie :</strong> 
             <?php
                 foreach ($categorie as $cat):
