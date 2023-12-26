@@ -1,17 +1,29 @@
 <?php
 class ContactModel
 {
+    private $id;
     private $nom;
     private $prenom;
     private $email;
     private $telephone;
 
-    public function __construct($nom, $prenom, $email, $telephone)
+    public function __construct($id,$nom, $prenom, $email, $telephone)
     {
+        $this->id = $id;
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->email = $email;
         $this->telephone = $telephone;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setId($id)
+    {
+        $this->id = $id;
     }
 
     public function getNom()

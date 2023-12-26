@@ -3,13 +3,17 @@
 class ListLicencieController {
     private $licencieDAO;
     private $categorieDAO;
+    private $contactDAO;
 
-    public function __construct(CategorieDAO $categorieDAO,LicencieDAO $licencieDAO) {
+    public function __construct(CategorieDAO $categorieDAO,LicencieDAO $licencieDAO,ContactDAO $contactDAO) {
         $this->licencieDAO = $licencieDAO;
         $this->categorieDAO = $categorieDAO;
+        $this->contactDAO = $contactDAO;
     }
 
     public function index() {
+        // RÃ©cupÃ©rer la liste de tous les contacts depuis le modÃ¨le
+        $contact = $this->contactDAO->getAll();
         // RÃ©cupÃ©rer la liste de tous les categories depuis le modÃ¨le
         $licencie = $this->licencieDAO->getAll();
         // RÃ©cupÃ©rer la liste de tous les categories depuis le modÃ¨le

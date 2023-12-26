@@ -3,16 +3,20 @@ class AddLicencieController {
     
     private $licencieDAO;
     private $categorieDAO;
+    private $contactDAO;
 
-    public function __construct(CategorieDAO $categorieDAO,LicencieDAO $licencieDAO) {
+    public function __construct(CategorieDAO $categorieDAO,LicencieDAO $licencieDAO,ContactDAO $contactDAO) {
         $this->licencieDAO = $licencieDAO;
         $this->categorieDAO = $categorieDAO;
+        $this->contactDAO = $contactDAO;
     }
 
     public function index() {
         // RÃ©cupÃ©rer la liste de tous les categories depuis le modÃ¨le
+        $contact = $this->contactDAO->getAll();
+        // RÃ©cupÃ©rer la liste de tous les categories depuis le modÃ¨le
         $categorie = $this->categorieDAO->getAll();
-    // Inclure la vue pour afficher le formulaire d'ajout de contact
+        // Inclure la vue pour afficher le formulaire d'ajout de contact
         include('views/views_licencie/add_licencie.php'); 
     }
     
@@ -22,14 +26,14 @@ class AddLicencieController {
             $numero = $_POST['numero'];
             $nom = $_POST['nom'];
             $prenom = $_POST['prenom'];
-            $contact = $_POST['contact'];
+            $contactid = $_POST['contactid'];
             $idCat = $_POST['idCat'];
             
 
             // Valider les données du formulaire (ajoutez des validations si nécessaire)
 
             // Créer un nouvel objet ContactModel avec les données du formulaire
-            $nouveauLicencie = new LicencieModel(0,$numero, $nom, $prenom, $contact, $idCat);
+            $nouveauLicencie = new LicencieModel(0,$numero, $nom, $prenom, $contactid, $idCat);
 
             // Appeler la méthode du modèle (LicencieDAO) pour ajouter le licencié
             if ($this->licencieDAO->create($nouveauLicencie)) {

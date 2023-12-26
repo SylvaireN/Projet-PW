@@ -17,7 +17,7 @@ class LicencieDAO {
             $licencie = [];
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $licencie[] = new LicencieModel($row['id'],$row['numero'], $row['nom'], $row['prenom'],$row['contact'], $row['idCat']);
+                $licencie[] = new LicencieModel($row['id'],$row['numero'], $row['nom'], $row['prenom'],$row['contact_id'], $row['idCat']);
             }
 
             return $licencie;
@@ -36,7 +36,7 @@ class LicencieDAO {
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($row) {
-                return new LicencieModel($row['id'],$row['numero'], $row['nom'], $row['prenom'],$row['contact'], $row['idCat']);
+                return new LicencieModel($row['id'],$row['numero'], $row['nom'], $row['prenom'],$row['contact_id'], $row['idCat']);
             } else {
                 return null; // Aucune categorie trouvÃ© avec cet ID
             }
@@ -49,8 +49,8 @@ class LicencieDAO {
     // MÃ©thode pour insÃ©rer un nouveau licencié dans la base de donnÃ©es
     public function create(LicencieModel $licencie) {
         try {
-            $stmt = $this->connexion->pdo->prepare("INSERT INTO licencie (numero, nom, prenom, contact, idCat) VALUES (?, ?, ?, ?, ?)");
-            $stmt->execute([$licencie->getNumeroLicence(), $licencie->getNom(), $licencie->getPrenom(), $licencie->getContact(), $licencie->getIdCat()]);
+            $stmt = $this->connexion->pdo->prepare("INSERT INTO licencie (numero, nom, prenom, contact_id, idCat) VALUES (?, ?, ?, ?, ?)");
+            $stmt->execute([$licencie->getNumeroLicence(), $licencie->getNom(), $licencie->getPrenom(), $licencie->getContactId(), $licencie->getIdCat()]);
             return true;
         } catch (PDOException $e) {
             // GÃ©rer les erreurs d'insertion ici

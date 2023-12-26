@@ -25,8 +25,13 @@
                 <label for="prenom" class="form-label">Prenom :</label>
                 <input type="text" id="prenom" name="prenom" class="form-control" required><br>
 
-                <label for="contact" class="form-label">Contact :</label>
-                <input type="text" id="contact" name="contact" class="form-control" required><br>
+                <label for="contactid" class="form-label">Contact :</label>
+                <select id="contactid" name="contactid" class="form-select" aria-label="Default select example">
+                    <?php foreach ($contact as $ct): ?>
+                        <option value="<?php echo $ct->getId(); ?>"><?php echo $ct->getNom(); ?>&nbsp;&nbsp;<?php echo $ct->getPrenom(); ?></option>
+                    <?php endforeach; ?>
+                    
+                </select><br>
 
                 <label for="idCat" class="form-label">Catégorie :</label>
                 <!--<input type="text" id="idCat" name="idCat" class="form-control" required><br>-->

@@ -6,17 +6,17 @@ class LicencieModel
     private $numeroLicence;
     private $nom;
     private $prenom;
-    private $contact;
+    private $contactid;
     private $idCat;
 
-    public function __construct($id, $numeroLicence, $nom, $prenom, $contact, $idCat)
+    public function __construct($id, $numeroLicence, $nom, $prenom, $contactid, $idCat)
     {
         //parent::__construct($id, $nomCat, $codeRaccourci);
         $this->id = $id;
         $this->numeroLicence = $numeroLicence;
         $this->nom = $nom;
         $this->prenom = $prenom;
-        $this->contact = $contact;
+        $this->contactid = $contactid;
         $this->idCat = $idCat;
     }
 
@@ -59,14 +59,14 @@ class LicencieModel
         $this->prenom = $prenom;
     }
 
-    public function getContact()
+    public function getContactId()
     {
-        return $this->contact;
+        return $this->contactid;
     }
 
-    public function setContact($contact)
+    public function setContactId($contactid)
     {
-        $this->contact = $contact;
+        $this->contactid = $contactid;
     }
 
     public function getIdCat()
