@@ -73,6 +73,18 @@ class LicencieDAO {
             return false;
         }
     }
+
+    // MÃ©thode pour supprimer un licencie par son ID
+    public function deleteById($id) {
+        try {
+            $stmt = $this->connexion->pdo->prepare("DELETE FROM licencie WHERE id = ?");
+            $stmt->execute([$id]);
+            return true;
+        } catch (PDOException $e) {
+            // GÃ©rer les erreurs de suppression ici
+            return false;
+        }
+    }
    
 
     

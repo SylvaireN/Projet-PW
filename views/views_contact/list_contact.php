@@ -10,7 +10,7 @@
 <body>
     <div class="container">
         <h1><center>Liste des Contacts</center></h1><br/>
-        <a href="index.php?page=">Ajouter un Contact</a>
+        <a href="index.php?page=addCont">Ajouter un Contact</a>
 
         <?php if (count($contact) > 0): ?>
             <table class="table table-striped">
@@ -31,9 +31,9 @@
                             <td><?php echo $cont->getEmail(); ?></td>
                             <td><?php echo $cont->getTelephone(); ?></td>
                             <td>
-                                <a href="index.php?page=view&action=viewCategorie&id=<?php echo $licence->getId(); ?>">Voir</a>
-                                <a href="index.php?page=edit&action=editContact&id=<?php echo $licence->getId(); ?>">Modifier</a>
-                                <a href="index.php?page=delete&action=deleteContact&id=<?php echo $licence->getId(); ?>">Supprimer</a>
+                                <a href="index.php?page=viewContact&action=viewContact&id=<?php echo $cont->getId(); ?>">Voir</a>
+                                <a href="index.php?page=editContact&action=editContact&id=<?php echo $cont->getId(); ?>">Modifier</a>
+                                <a href="index.php?page=delete&action=deleteContact&id=<?php echo $cont->getId(); ?>">Supprimer</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

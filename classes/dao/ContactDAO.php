@@ -46,6 +46,34 @@ class ContactDAO {
         }
     }
 
+    // MÃ©thode pour insÃ©rer un nouveau contact dans la base de donnÃ©es
+    public function create(ContactModel $contact) {
+        try {
+            $stmt = $this->connexion->pdo->prepare("INSERT INTO contact (nom, prenom, email, telephone) VALUES (?, ?, ?, ?)");
+            $stmt->execute([$contact->getNom(), $contact->getPrenom(), $contact->getEmail(), $contact->getTelephone()]);
+            return true;
+        } catch (PDOException $e) {
+            // GÃ©rer les erreurs d'insertion ici
+            return false;
+        }
+    }
+
+
+    // MÃ©thode pour mettre Ã  jour un contact
+    public function update(ContactModel $contact) {
+        
+        try {
+            
+            $stmt = $this->connexion->pdo->prepare("UPDATE contact SET nom = ?, prenom = ?, email = ?, telephone = ? WHERE id = ?");
+            $stmt->execute([$contact->getNom(), $contact->getPrenom(), $contact->getEmail(), $contact->getTelephone(), $contact->getId()]);
+            return true;
+        } catch (PDOException $e) {
+            
+            
+            // GÃ©rer les erreurs de mise Ã  jour ici
+            return false;
+        }
+    }
    
 
     
