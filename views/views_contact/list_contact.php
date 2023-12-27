@@ -33,7 +33,7 @@
                             <td>
                                 <a href="index.php?page=viewContact&action=viewContact&id=<?php echo $cont->getId(); ?>">Voir</a>
                                 <a href="index.php?page=editContact&action=editContact&id=<?php echo $cont->getId(); ?>">Modifier</a>
-                                <a href="index.php?page=delete&action=deleteContact&id=<?php echo $cont->getId(); ?>">Supprimer</a>
+                                <a href="index.php?page=deleteContact&action=deleteContact&id=<?php echo $cont->getId(); ?>">Supprimer</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

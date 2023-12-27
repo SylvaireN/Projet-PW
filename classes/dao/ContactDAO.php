@@ -74,6 +74,18 @@ class ContactDAO {
             return false;
         }
     }
+
+    // MÃ©thode pour supprimer un contact par son ID
+    public function deleteById($id) {
+        try {
+            $stmt = $this->connexion->pdo->prepare("DELETE FROM contact WHERE id = ?");
+            $stmt->execute([$id]);
+            return true;
+        } catch (PDOException $e) {
+            // GÃ©rer les erreurs de suppression ici
+            return false;
+        }
+    }
    
 
     

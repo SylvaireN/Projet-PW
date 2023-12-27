@@ -50,7 +50,10 @@ $controllers = [
 'editContact' => 'EditContactController',
 'viewContact' => 'ViewContactController',
 'listContact' => 'ListContactController',
+'deleteContact' => 'DeleteContactController',
 'listEducateur' => 'ListEducateurController',
+'addEducateur' => 'AddEducateurController',
+'viewEducateur' => 'ViewEducateurController',
 //'delete' => 'DeleteContactController',
 //'edit' => 'EditContactController'
 ];

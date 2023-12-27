@@ -17,7 +17,7 @@ class EducateurDAO {
             $educateur = [];
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $educateur[] = new EducateurModel($row['id'], $row['email'], $row['password'], $row['role'],$row['licence_id']);
+                $educateur[] = new EducateurModel($row['id'], $row['email'], $row['motdepasse'], $row['role'],$row['licence_id']);
             }
 
             return $educateur;
@@ -38,7 +38,7 @@ class EducateurDAO {
             if ($row) {
                 return new EducateurModel($row['id'], $row['email'], $row['role'],$row['role'],$row['licence_id']);
             } else {
-                return null; // Aucune categorie trouvÃ© avec cet ID
+                return null; // Aucun educateur trouvÃ© avec cet ID
             }
         } catch (PDOException $e) {
             // GÃ©rer les erreurs de rÃ©cupÃ©ration ici
@@ -46,6 +46,33 @@ class EducateurDAO {
         }
     }
 
+    // MÃ©thode pour insÃ©rer un nouveau educateur dans la base de donnÃ©es
+    public function create(EducateurModel $educateur) {
+        try {
+            $stmt = $this->connexion->pdo->prepare("INSERT INTO educateur (email, motdepasse, role, licence_id) VALUES (?, ?, ?, ?)");
+            $stmt->execute([$educateur->getEmail(), $educateur->getMotDePasse(),$educateur->getRole(), $educateur->getLicenceID()]);
+            return true;
+        } catch (PDOException $e) {
+            // GÃ©rer les erreurs d'insertion ici
+            return false;
+        }
+    }
+
+    // MÃ©thode pour mettre Ã  jour un educateur
+    public function update(EducateurModel $educateur) {
+        
+        try {
+            
+            $stmt = $this->connexion->pdo->prepare("UPDATE educateur SET email = ?, motdepasse = ?, role = ?, licence_id = ? WHERE id = ?");
+            $stmt->execute([$educateur->getEmail(), $educateur->getMotDePasse(), $educateur->getRole(), $educateur->getLicenceID(), $educateur->getId()]);
+            return true;
+        } catch (PDOException $e) {
+            
+            
+            // GÃ©rer les erreurs de mise Ã  jour ici
+            return false;
+        }
+    }
    
 
     
