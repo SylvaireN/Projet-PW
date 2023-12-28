@@ -36,7 +36,7 @@ class EducateurDAO {
             $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($row) {
-                return new EducateurModel($row['id'], $row['email'], $row['role'],$row['role'],$row['licence_id']);
+                return new EducateurModel($row['id'], $row['email'], $row['motdepasse'],$row['role'],$row['licence_id']);
             } else {
                 return null; // Aucun educateur trouvÃ© avec cet ID
             }
@@ -86,6 +86,7 @@ class EducateurDAO {
         }
     }
    
+    
 
     
 
