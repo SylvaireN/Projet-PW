@@ -10,12 +10,21 @@
 <body>
     <div class="container">
         <h1><center>Liste des Contacts</center></h1><br/>
-        <a href="index.php?page=addCont">Ajouter un Contact</a>
+        
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a href="index.php?page=addCont">Ajouter un Contact</a>
+                &nbsp;&nbsp;&nbsp;
+            <li class="nav-item">
+                <a href="index.php?page=home">Retourner à l'accueil</a>
+            </li>
+        </ul>
 
         <?php if (count($contact) > 0): ?>
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Nom</th>
                         <th>Prénom</th>
                         <th>Email</th>
@@ -26,14 +35,15 @@
                 <tbody>
                     <?php foreach ($contact as $cont): ?>
                         <tr>
+                            <td><?php echo $cont->getId(); ?></td>
                             <td><?php echo $cont->getNom(); ?></td>
                             <td><?php echo $cont->getPrenom(); ?></td>
                             <td><?php echo $cont->getEmail(); ?></td>
                             <td><?php echo $cont->getTelephone(); ?></td>
                             <td>
-                                <a href="index.php?page=viewContact&action=viewContact&id=<?php echo $cont->getId(); ?>">Voir</a>
-                                <a href="index.php?page=editContact&action=editContact&id=<?php echo $cont->getId(); ?>">Modifier</a>
-                                <a href="index.php?page=deleteContact&action=deleteContact&id=<?php echo $cont->getId(); ?>">Supprimer</a>
+                                <a href="index.php?page=viewContact&action=viewContact&id=<?php echo $cont->getId(); ?>"><img src="img/view.png" alt="Voir" style="height:30px;"></a>
+                                <a href="index.php?page=editContact&action=editContact&id=<?php echo $cont->getId(); ?>"><img src="img/update.png" alt="Modifier" style="height:30px;"></a>
+                                <a href="index.php?page=deleteContact&action=deleteContact&id=<?php echo $cont->getId(); ?>"><img src="img/delete.png" alt="Supprimer" style="height:30px;"></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

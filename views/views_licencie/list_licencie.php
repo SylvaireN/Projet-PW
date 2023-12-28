@@ -25,6 +25,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Numéro de Licence</th>
                         <th>Nom</th>
                         <th>Prénom</th>
@@ -38,6 +39,7 @@
                 <tbody>
                     <?php foreach ($licencie as $licence): ?>
                         <tr>
+                            <td><?php echo $licence->getId(); ?></td>
                             <td><?php echo $licence->getNumeroLicence(); ?></td>
                             <td><?php echo $licence->getNom(); ?></td>
                             <td><?php echo $licence->getPrenom(); ?></td>
@@ -86,9 +88,9 @@
                                <?php endforeach; ?>
                              </td>
                             <td>
-                                <a href="index.php?page=viewLicence&action=viewLicencie&id=<?php echo $licence->getId(); ?>">Voir</a>
-                                <a href="index.php?page=editLicence&action=editLicencie&id=<?php echo $licence->getId(); ?>">Modifier</a>
-                                <a href="index.php?page=deleteLicence&action=deleteLicencie&id=<?php echo $licence->getId(); ?>">Supprimer</a>
+                                <a href="index.php?page=viewLicence&action=viewLicencie&id=<?php echo $licence->getId(); ?>"><img src="img/view.png" alt="Voir" style="height:30px;"></a>
+                                <a href="index.php?page=editLicence&action=editLicencie&id=<?php echo $licence->getId(); ?>"><img src="img/update.png" alt="Modifier" style="height:30px;"></a>
+                                <a href="index.php?page=deleteLicence&action=deleteLicencie&id=<?php echo $licence->getId(); ?>"><img src="img/delete.png" alt="Supprimer" style="height:30px;"></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

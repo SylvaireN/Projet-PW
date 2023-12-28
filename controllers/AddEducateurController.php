@@ -23,7 +23,7 @@ class AddEducateurController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Récupérer les données du formulaire
             $email = $_POST['email'];
-            $motdepasse = $_POST['motdepasse'];
+            $motdepasse = sha1($_POST['motdepasse']);
             $role = $_POST['role'];
             $licence_id = $_POST['licence_id'];
             

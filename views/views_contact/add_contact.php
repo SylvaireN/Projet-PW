@@ -22,7 +22,7 @@
                 <input type="text" id="prenom" name="prenom" class="form-control" required><br>
 
                 <label for="email" class="form-label">Email :</label>
-                <input type="text" id="email" name="email" class="form-control" required><br>
+                <input type="email" id="email" name="email" class="form-control" required><br>
 
                 <label for="telephone" class="form-label">Téléphone :</label>
                 <input type="text" id="telephone" name="telephone" class="form-control" required><br>

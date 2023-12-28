@@ -10,12 +10,21 @@
 <body>
     <div class="container">
         <h1><center>Liste des Catégories</center></h1><br/>
-        <a href="index.php?page=addCat">Ajouter une catégorie</a>
+       
+
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a href="index.php?page=addCat">Ajouter une catégorie</a>
+                &nbsp;&nbsp;&nbsp;
+            <li class="nav-item">
+                <a href="index.php?page=home">Retourner à l'accueil</a>
+            </li>
+        </ul>
 
         <?php if (count($categorie) > 0): ?>
             <table class="table table-striped">
                 <thead>
-                    <tr>
+                    <tr><th>ID</th>
                         <th>Nom</th>
                         <th>Code Raccourci</th>
                         <th>Action</th>
@@ -24,12 +33,13 @@
                 <tbody>
                     <?php foreach ($categorie as $cat): ?>
                         <tr>
+                            <td><?php echo $cat->getId(); ?></td>
                             <td><?php echo $cat->getNom(); ?></td>
                             <td><?php echo $cat->getCode(); ?></td>
                             <td>
-                                <a href="index.php?page=viewCat&action=viewCategorie&id=<?php echo $cat->getId(); ?>">Voir</a>
-                                <a href="index.php?page=editCat&action=editCategorie&id=<?php echo $cat->getId(); ?>">Modifier</a>
-                                <a href="index.php?page=deleteCat&action=deleteCategorie&id=<?php echo $cat->getId(); ?>">Supprimer</a>
+                                <a href="index.php?page=viewCat&action=viewCategorie&id=<?php echo $cat->getId(); ?>"><img src="img/view.png" alt="Voir" style="height:30px;"></a>&nbsp;
+                                <a href="index.php?page=editCat&action=editCategorie&id=<?php echo $cat->getId(); ?>"><img src="img/update.png" alt="Modifier" style="height:30px;"></a>
+                                <a href="index.php?page=deleteCat&action=deleteCategorie&id=<?php echo $cat->getId(); ?>"><img src="img/delete.png" alt="Supprimer" style="height:30px;"></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
