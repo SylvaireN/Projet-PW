@@ -54,6 +54,8 @@ $controllers = [
 'listEducateur' => 'ListEducateurController',
 'addEducateur' => 'AddEducateurController',
 'viewEducateur' => 'ViewEducateurController',
+'editEducateur' => 'EditEducateurController',
+'deleteEducateur' => 'DeleteEducateurController'
 //'delete' => 'DeleteContactController',
 //'edit' => 'EditContactController'
 ];
@@ -62,7 +64,7 @@ if (array_key_exists($page, $controllers)) {
 $controllerName = $controllers[$page];
 // Inclure le fichier du contr�leur
 require_once('controllers/' . $controllerName . '.php');
-echo "Vous appelez ce controller : ".$controllerName;
+//echo "Vous appelez ce controller : ".$controllerName;
 // Instancier le contr�leur
 
 $controller = new $controllerName($categorieDAO,$licencieDAO,$contactDAO,$educateurDAO);

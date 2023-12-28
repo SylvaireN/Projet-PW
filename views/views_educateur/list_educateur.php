@@ -53,8 +53,8 @@
                             </td>
                             <td>
                                 <a href="index.php?page=viewEducateur&action=viewEducateur&id=<?php echo $educ->getId(); ?>">Voir</a>
-                                <a href="index.php?page=edit&action=editContact&id=<?php echo $educ->getId(); ?>">Modifier</a>
-                                <a href="index.php?page=delete&action=deleteContact&id=<?php echo $educ->getId(); ?>">Supprimer</a>
+                                <a href="index.php?page=editEducateur&action=editEducateur&id=<?php echo $educ->getId(); ?>">Modifier</a>
+                                <a href="index.php?page=deleteEducateur&action=deleteEducateur&id=<?php echo $educ->getId(); ?>">Supprimer</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

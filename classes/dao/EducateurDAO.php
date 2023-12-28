@@ -63,13 +63,25 @@ class EducateurDAO {
         
         try {
             
-            $stmt = $this->connexion->pdo->prepare("UPDATE educateur SET email = ?, motdepasse = ?, role = ?, licence_id = ? WHERE id = ?");
-            $stmt->execute([$educateur->getEmail(), $educateur->getMotDePasse(), $educateur->getRole(), $educateur->getLicenceID(), $educateur->getId()]);
+            $stmt = $this->connexion->pdo->prepare("UPDATE educateur SET email = ?, role = ?, licence_id = ? WHERE id = ?");
+            $stmt->execute([$educateur->getEmail(), $educateur->getRole(), $educateur->getLicenceID(), $educateur->getId()]);
             return true;
         } catch (PDOException $e) {
             
             
             // GÃ©rer les erreurs de mise Ã  jour ici
+            return false;
+        }
+    }
+
+     // MÃ©thode pour supprimer un éducateur par son ID
+     public function deleteById($id) {
+        try {
+            $stmt = $this->connexion->pdo->prepare("DELETE FROM educateur WHERE id = ?");
+            $stmt->execute([$id]);
+            return true;
+        } catch (PDOException $e) {
+            // GÃ©rer les erreurs de suppression ici
             return false;
         }
     }
