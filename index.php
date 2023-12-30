@@ -1,4 +1,5 @@
 <?php
+include 'classes/dao/LoginDAO.php';
 // Inclure le fichier de configuration
 require_once('config/config.php');
 require_once("config/config.php");
@@ -59,6 +60,7 @@ $controllers = [
 'editEducateur' => 'EditEducateurController',
 'deleteEducateur' => 'DeleteEducateurController',
 'login' => 'LoginController',
+'logout' => 'LogoutController',
 //'delete' => 'DeleteContactController',
 //'edit' => 'EditContactController'
 ];

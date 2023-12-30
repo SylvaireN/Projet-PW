@@ -58,7 +58,7 @@ class CategorieDAO {
         }
     }
 
-     // MÃ©thode pour mettre Ã  jour un contact
+     // MÃ©thode pour mettre Ã  jour un categorie
      public function update(CategorieModel $categorie) {
         try {
             $stmt = $this->connexion->pdo->prepare("UPDATE categorie SET nomcat = ?, code = ? WHERE id = ?");

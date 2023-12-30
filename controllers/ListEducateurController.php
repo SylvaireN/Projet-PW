@@ -1,15 +1,22 @@
 <?php
 
 class ListEducateurController {
-    private $educateurDAO;
+    private $categorieDAO;
     private $licencieDAO;
+    private $contactDAO;
+    private $educateurDAO;
+    private $loginDAO;
 
-    public function __construct(CategorieDAO $categorie,LicencieDAO $licencieDAO,ContactDAO $contactDAO, EducateurDAO $educateurDAO) {
-        $this->educateurDAO = $educateurDAO;
+    public function __construct(CategorieDAO $categorieDAO, LicencieDAO $licencieDAO, ContactDAO $contactDAO, EducateurDAO $educateurDAO, LoginDAO $loginDAO) {
+        $this->categorieDAO = $categorieDAO;
         $this->licencieDAO = $licencieDAO;
+        $this->contactDAO = $contactDAO;
+        $this->educateurDAO = $educateurDAO;
+        $this->loginDAO = $loginDAO;
     }
 
     public function index() {
+        $login = $this->loginDAO->getAdmin();
         // RÃ©cupÃ©rer la liste de tous les categories depuis le modÃ¨le
         $educateur = $this->educateurDAO->getAll();
         // RÃ©cupÃ©rer la liste de tous les licencié depuis le modÃ¨le

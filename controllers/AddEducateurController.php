@@ -4,15 +4,18 @@ class AddEducateurController {
     private $licencieDAO;
     private $categorieDAO;
     private $educateurDAO;
+    private $loginDAO;
 
-    public function __construct(CategorieDAO $categorieDAO,LicencieDAO $licencieDAO,ContactDAO $contactDAO, EducateurDAO $educateurDAO) {
+    public function __construct(CategorieDAO $categorieDAO,LicencieDAO $licencieDAO,ContactDAO $contactDAO, EducateurDAO $educateurDAO, LoginDAO $loginDAO) {
         $this->contactDAO = $contactDAO;
         $this->licencieDAO = $licencieDAO;
         $this->categorieDAO = $categorieDAO;
         $this->educateurDAO = $educateurDAO;
+        $this->loginDAO = $loginDAO;
     }
 
     public function index() {
+        $login = $this->loginDAO->getAdmin();
         // RÃ©cupÃ©rer la liste de tous les licencié depuis le modÃ¨le
         $licencie = $this->licencieDAO->getAll();
     // Inclure la vue pour afficher le formulaire d'ajout de contact

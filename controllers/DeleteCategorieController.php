@@ -1,12 +1,21 @@
 <?php
 class DeleteCategorieController {
     private $categorieDAO;
+    private $licencieDAO;
+    private $contactDAO;
+    private $educateurDAO;
+    private $loginDAO;
 
-    public function __construct(CategorieDAO $categorieDAO) {
+    public function __construct(CategorieDAO $categorieDAO, LicencieDAO $licencieDAO, ContactDAO $contactDAO, EducateurDAO $educateurDAO, LoginDAO $loginDAO) {
         $this->categorieDAO = $categorieDAO;
+        $this->licencieDAO = $licencieDAO;
+        $this->contactDAO = $contactDAO;
+        $this->educateurDAO = $educateurDAO;
+        $this->loginDAO = $loginDAO;
     }
 
     public function deleteCategorie($categorieId) {
+        $login = $this->loginDAO->getAdmin();
         // Récupérer la catégorie à supprimer en utilisant son ID
         $categorie = $this->categorieDAO->getById($categorieId);
 

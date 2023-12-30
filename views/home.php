@@ -1,3 +1,12 @@
+<?php 
+	include "top.php";
+?>
+<?php 
+
+    if(!isset($_SESSION['admin'])){
+        header("Location:index.php?page=login");
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -8,7 +17,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body>
+   
+    <?php
+    
+    if(isset($_SESSION['admin'])): ?>
+        <?php 
+           // echo "votre login est: " . $_SESSION['admin'] . "<br>";
+        ?>
+       <!--<ul> <a class="nav-link" href="index.php?page=logout">Déconnexion</a></ul>-->
+        
+    <?php endif; ?>
 
+    <?php if($login): 
+       // echo "votre login est: " . $_SESSION['admin'] . "<br>";
+        ?>
+    <?php endif ?>
+    
     <div class="container">
         <h1><center>Dashboard</center></h1><br/>
         <!--<a href="index.php?page=addCategorie">Ajouter une catégorie</a>
@@ -30,6 +54,20 @@
             <li class="nav-item">
                 <a class="nav-link" href="index.php?page=listContact">Listes des Contacts</a>
             </li>
+            <li> <a class="nav-link" href="index.php?page=logout">Déconnexion</a></li>&nbsp;&nbsp;
+            <?php
+    
+                if(isset($_SESSION['admin'])): ?>
+                <li class="nav-item">
+                <center><img src="img/online.png" alt="admin" style="height:30px;"><br>
+                    <?php 
+                        echo "" . $_SESSION['admin'] . "";
+                    ?>
+                </center>
+                </li>
+                
+                
+            <?php endif; ?>
             <!--<li class="nav-item">
                 <a class="nav-link disabled" aria-disabled="true">Disabled</a>
             </li>-->

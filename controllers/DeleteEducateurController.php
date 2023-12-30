@@ -4,15 +4,18 @@ class DeleteEducateurController {
     private $categorieDAO;
     private $contactDAO;
     private $educateur;
+    private $loginDAO;
 
-    public function __construct(CategorieDAO $categorieDAO,LicencieDAO $licencieDAO,ContactDAO $contactDAO, EducateurDAO $educateurDAO) {
+    public function __construct(CategorieDAO $categorieDAO,LicencieDAO $licencieDAO,ContactDAO $contactDAO, EducateurDAO $educateurDAO, LoginDAO $loginDAO) {
         $this->licencieDAO = $licencieDAO;
         $this->categorieDAO = $categorieDAO;
         $this->contactDAO = $contactDAO;
         $this->educateurDAO = $educateurDAO;
+        $this->loginDAO  = $loginDAO;
     }
 
     public function deleteEducateur($educateurId) {
+        $login = $this->loginDAO->getAdmin();
         // Récupérer l'educateur à supprimer en utilisant son ID
         $educateur = $this->educateurDAO->getById($educateurId);
 

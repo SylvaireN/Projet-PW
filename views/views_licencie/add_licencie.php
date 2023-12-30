@@ -1,3 +1,9 @@
+<?php 
+
+    if(!isset($_SESSION['admin'])){
+        header("Location:index.php?page=login");
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,8 +17,33 @@
 <body>
     <div class="container">
         
-        <h1><center>Ajouter un Licencié</center></h1>
-        <a href="index.php?page=listLicencie">Retour à la liste des licencié</a>
+        <h1><center>Ajouter un Licencié</center></h1><br>
+        
+        <ul class="nav nav-pills">
+            <li class="nav-item">
+                <a href="index.php?page=listLicencie">Retour à la liste des licencié</a>
+            </li>&nbsp;&nbsp;&nbsp;
+            <li class="nav-item">
+                <a href="index.php?page=home">Retourner à l'accueil</a>
+            </li>&nbsp;&nbsp;&nbsp;
+            <li> <a class="nav-item" href="index.php?page=logout">Déconnexion</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <?php
+    
+                if(isset($_SESSION['admin'])): ?>
+                <li class="nav-item">
+                <div class="position-absolute" style="right: 150px">
+                <center><img src="img/online.png" alt="admin" style="height:30px;"><br>
+                    <?php 
+                        echo "" . $_SESSION['admin'] . "";
+                    ?>
+                </center>
+                </div>
+              
+                </li>
+                
+                
+            <?php endif; ?>
+        </ul><br>
         <div class="mb-3">
             <form action="index.php?page=addLicence&action=addLicencie" method="post">
 

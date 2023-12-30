@@ -1,12 +1,21 @@
 <?php
 class AddCategorieController {
     private $categorieDAO;
+    private $licencieDAO;
+    private $contactDAO;
+    private $educateurDAO;
+    private $loginDAO;
 
-    public function __construct(CategorieDAO $categorieDAO) {
+    public function __construct(CategorieDAO $categorieDAO, LicencieDAO $licencieDAO, ContactDAO $contactDAO, EducateurDAO $educateurDAO, LoginDAO $loginDAO) {
         $this->categorieDAO = $categorieDAO;
+        $this->licencieDAO = $licencieDAO;
+        $this->contactDAO = $contactDAO;
+        $this->educateurDAO = $educateurDAO;
+        $this->loginDAO = $loginDAO;
     }
 
     public function index() {
+        $login = $this->loginDAO->getAdmin();
     // Inclure la vue pour afficher le formulaire d'ajout de contact
         include('views/views_categorie/add_categorie.php'); 
     }

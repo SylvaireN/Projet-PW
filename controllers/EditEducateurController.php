@@ -4,15 +4,18 @@ class EditEducateurController {
     private $categorieDAO;
     private $contactDAO;
     private $educateurDAO;
+    private $loginDAO;
 
-    public function __construct(CategorieDAO $categorieDAO,LicencieDAO $licencieDAO, ContactDAO $contactDAO,EducateurDAO $educateurDAO) {
+    public function __construct(CategorieDAO $categorieDAO,LicencieDAO $licencieDAO, ContactDAO $contactDAO,EducateurDAO $educateurDAO, LoginDAO $loginDAO) {
         $this->licencieDAO = $licencieDAO;
         $this->categorieDAO = $categorieDAO;
         $this->contactDAO = $contactDAO;
         $this->educateurDAO = $educateurDAO;
+        $this->loginDAO = $loginDAO;
     }
 
     public function editEducateur($educateurId) {
+        $login = $this->loginDAO->getAdmin();
         $licencie = $this->licencieDAO->getAll();
         // Récupérer l'educateur à modifier en utilisant son ID
         $educateur = $this->educateurDAO->getById($educateurId);

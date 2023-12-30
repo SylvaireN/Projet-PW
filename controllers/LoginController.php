@@ -16,13 +16,15 @@ class LoginController {
 
     public function index() {
         $error = False;
-        $notAdmin = False;
+        $login = $this->loginDAO->getAdmin();
+        
     // Inclure la vue pour afficher le formulaire d'ajout de contact
         include('views/login.php'); 
     }
     
     public function isLogin() {
         $error = False;
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // RÃ©cupÃ©rer la liste de tous les categories depuis le modÃ¨le
              $educateur = $this->educateurDAO->getAll();
@@ -39,7 +41,14 @@ class LoginController {
 
             // Appeler la méthode du modèle (EducateurDAO) pour ajouter le contact
             if ($this->loginDAO->getLogin($email,$motdepasse)) {
-                // Rediriger vers la page d'accueil après l'ajout
+                $_SESSION['admin'] = $email;
+                
+                //var_dump($_SESSION['admin']);
+                //if ($this->loginDAO->getAdmin()) {
+                //    var_dump($_SESSION['admin']);
+                //}
+                
+                //Rediriger vers la page d'accueil après l'ajout
                 header('Location:index.php?page=home');
                 exit();
             } else {

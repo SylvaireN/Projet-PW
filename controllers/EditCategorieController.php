@@ -1,12 +1,21 @@
 <?php
 class EditCategorieController {
     private $categorieDAO;
+    private $licencieDAO;
+    private $contactDAO;
+    private $educateurDAO;
+    private $loginDAO;
 
-    public function __construct(CategorieDAO $categorieDAO) {
+    public function __construct(CategorieDAO $categorieDAO, LicencieDAO $licencieDAO, ContactDAO $contactDAO, EducateurDAO $educateurDAO, LoginDAO $loginDAO) {
         $this->categorieDAO = $categorieDAO;
+        $this->licencieDAO = $licencieDAO;
+        $this->contactDAO = $contactDAO;
+        $this->educateurDAO = $educateurDAO;
+        $this->loginDAO = $loginDAO;
     }
 
     public function editCategorie($categorieId) {
+        $login = $this->loginDAO->getAdmin();
         // Récupérer le contact à modifier en utilisant son ID
         $categorie = $this->categorieDAO->getById($categorieId);
 
