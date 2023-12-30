@@ -61,6 +61,7 @@ $controllers = [
 'deleteEducateur' => 'DeleteEducateurController',
 'login' => 'LoginController',
 'logout' => 'LogoutController',
+'export' => 'ExportController',
 //'delete' => 'DeleteContactController',
 //'edit' => 'EditContactController'
 ];

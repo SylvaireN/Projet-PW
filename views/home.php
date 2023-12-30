@@ -1,6 +1,4 @@
-<?php 
-	include "top.php";
-?>
+
 <?php 
 
     if(!isset($_SESSION['admin'])){

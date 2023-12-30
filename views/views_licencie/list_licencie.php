@@ -23,6 +23,9 @@
             <li class="nav-item">
                 <a href="index.php?page=home">Retourner à l'accueil</a>
             </li>&nbsp;&nbsp;&nbsp;
+            <li class="nav-item">
+                <a href="index.php?page=export&action=exportLicencie">Export</a>
+            </li>&nbsp;&nbsp;&nbsp;
             <li> <a class="nav-item" href="index.php?page=logout">Déconnexion</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <?php
     

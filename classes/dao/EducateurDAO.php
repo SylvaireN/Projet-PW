@@ -87,7 +87,7 @@ class EducateurDAO {
     }
    
     
-
+//SELECT * FROM educateur,licencie WHERE educateur.id=3 AND educateur.licence_id=licencie.id;
     
 
 }

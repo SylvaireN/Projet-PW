@@ -85,6 +85,26 @@ class LicencieDAO {
             return false;
         }
     }
+
+     // MÃ©thode pour rÃ©cupÃ©rer la liste de tous les categorie
+     public function getDataExport() {
+    
+        try {
+            $sql = "SELECT licencie.id,licencie.numero,licencie.nom,licencie.prenom,contact.nom,contact.prenom,contact.email,contact.telephone,categorie.nomcat FROM licencie,contact,categorie WHERE licencie.contact_id=contact.id AND licencie.idCat=categorie.id;";
+            $stmt = $this->connexion->pdo->prepare($sql);
+            $stmt->execute();
+            //$educateur = [];
+
+            $row = $stmt->fetchAll();
+            
+            //$exist = $stmt->rowCount($sql);
+           
+            return $row;
+        } catch (PDOException $e) {
+            // GÃ©rer les erreurs de rÃ©cupÃ©ration ici
+            return [];
+        }
+    }
    
 
     
