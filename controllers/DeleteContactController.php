@@ -29,7 +29,7 @@ class DeleteContactController {
             // Supprimer le contact en appelant la méthode du modèle (ContactDAO)
             if ($this->contactDAO->deleteById($contactId)) {
                 // Rediriger vers la page d'accueil après la suppression
-                header('Location:index.php');
+                header('Location:index.php?page=listContact');
                 exit();
             } else {
                 // Gérer les erreurs de suppression du licencié

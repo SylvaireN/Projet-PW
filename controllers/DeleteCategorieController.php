@@ -29,7 +29,7 @@ class DeleteCategorieController {
             // Supprimer la catégorie en appelant la méthode du modèle (CatégorieDAO)
             if ($this->categorieDAO->deleteById($categorieId)) {
                 // Rediriger vers la page d'accueil après la suppression
-                header('Location:index.php');
+                header('Location:index.php?page=listCategorie');
                 exit();
             } else {
                 // Gérer les erreurs de suppression du catégorie

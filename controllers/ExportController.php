@@ -21,13 +21,13 @@ class ExportController {
         $categorie = $this->categorieDAO->getAll();
         $export = $this->licencieDAO->getDataExport();
         $affiche = "";
-        $affiche .= '"ID";"Numéro de Licence";"Nom";"Prénom";"Contact";"Email";"Téléphone";"Catégorie";'."\n";
+        $affiche .= '"ID";"Numéro de Licence";"Nom";"Prénom";"ID Contact";"Nom Contact";"Prénom Contact";"Email";"Téléphone";"ID Catégorie";"Catégorie";"Code Catégorie";'."\n";
         foreach($licencie as $l){
             foreach($categorie as $c){
                 foreach($contact as $ct){
                     if($l->getContactId() == $ct->getId()){
                         if($l->getIdCat() == $c->getId()){
-                            $affiche .= '"'.$l->getId().'";"'.$l->getNumeroLicence().'";"'.$l->getNom().'";"'.$l->getPrenom().'";"'.$ct->getNom().' '.$ct->getPrenom().'";"'.$ct->getEmail().'";"'.$ct->getTelephone().'";"'.$c->getNom().'";'."\n";
+                            $affiche .= '"'.$l->getId().'";"'.$l->getNumeroLicence().'";"'.$l->getNom().'";"'.$l->getPrenom().'";"'.$ct->getId().'";"'.$ct->getNom().'";"'.$ct->getPrenom().'";"'.$ct->getEmail().'";"'.$ct->getTelephone().'";"'.$c->getId().'";"'.$c->getNom().'";"'.$c->getCode().'";'."\n";
         
                         }
 

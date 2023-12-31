@@ -29,7 +29,7 @@ class DeleteLicencieController {
             // Supprimer le licencié en appelant la méthode du modèle (LicencieDAO)
             if ($this->licencieDAO->deleteById($licencieId)) {
                 // Rediriger vers la page d'accueil après la suppression
-                header('Location:index.php');
+                header('Location:index.php?page=listLicencie');
                 exit();
             } else {
                 // Gérer les erreurs de suppression du licencié

@@ -62,6 +62,7 @@ $controllers = [
 'login' => 'LoginController',
 'logout' => 'LogoutController',
 'export' => 'ExportController',
+'import' => 'ImportController',
 //'delete' => 'DeleteContactController',
 //'edit' => 'EditContactController'
 ];
